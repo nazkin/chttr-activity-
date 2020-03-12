@@ -4,4 +4,9 @@
     border: 1px solid black;
     height: 350px;
     margin: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    overflow: scroll;
 }

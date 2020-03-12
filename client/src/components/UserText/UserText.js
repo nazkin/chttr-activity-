@@ -7,9 +7,15 @@ import './UserText.css';
 **/
 
 const UserText = (props) => {
+    const names = [...props.users];
+
   return(
     <div className="users">
-
+        {names.map(name=> {
+            return(
+                <p>{name}</p>
+            )
+        })}
     </div>
    )
 

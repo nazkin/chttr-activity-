@@ -55,7 +55,7 @@ const Chat = ({location}) => {
 //SendMessage function that will be responsible for deploying messages to the chat
 const sendMessage = (e)=> {
   e.preventDefault();
-
+  
   if(message){
     socket.emit('sendMessage', message, ()=> {
       //This is our cleanup that happens once the message is sent (clears the input field)
@@ -70,7 +70,7 @@ console.log(message, messages);
         <h1>Welcome to the Chatroom!!</h1>
            <div className="innerContainer">
               <InfoHeader roomName={room}/>
-              <Messages  name={name} messages={messages}/>
+              <Messages users={users} name={name} messages={messages}/>
               <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
            </div>
         </div>

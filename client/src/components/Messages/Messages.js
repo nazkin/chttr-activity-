@@ -9,10 +9,15 @@ import UserText from '../UserText/UserText';
 **/
 
 const Messages = (props) => {
-
+  const users = [...props.users];
+  const userNames = [];
+  users.forEach(usr=> {
+    userNames.push(usr.name);
+  })
   return(
     <ScrollToBottom>
       <div className="container">
+        <button onClick={()=> console.log(userNames)}>Go</button>
         <div className="row">
        
           <div className="col-md-8">
@@ -24,7 +29,8 @@ const Messages = (props) => {
           </div>
         
           <div className="col-md-3">
-            <UserText />
+            <UserText users = {userNames} />
+
           </div>
         </div>
       </div>
