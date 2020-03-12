@@ -1,0 +1,9 @@
+.messages{
+    width:100%;
+    height:350px;
+    background: snow;
+    border: 1px solid linen;
+    overflow: auto;
+    margin: 15px;
+
+}

@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import io from 'socket.io-client';
 import queryString from 'query-string';
 import InfoHeader from '../InfoHeader/InfoHeader';
+import Input from '../Input/Input';
+import Messages from '../Messages/Messages';
 /**
 * @author
 * @function Chat
@@ -12,6 +14,7 @@ const Chat = ({location}) => {
   const [room, setRoom] = useState("");
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
+  const [users, setUsers] = useState('');
   
   const ENDPOINT = 'localhost:8080';
   
@@ -23,19 +26,29 @@ const Chat = ({location}) => {
     setName(name);
     setRoom(room);
     //here the socket will emit a join function signalling that a new user wants to join
-    socket.emit('join',{name, room}, ()=> {
- 
+    socket.emit('join',{name, room}, (error)=> {
+      if(error){
+        alert(error);
+      }
     });
     
-    //Here we will handle the unmounting condition by disconnecting the socket 
-    socket.emit('disconnect');
-    socket.off();
+
   }, [ENDPOINT, location.search]);
 
   useEffect(()=> {
     socket.on('message', (message)=> {
       setMessages([...messages, message])
-    })
+    });
+    socket.on('roomData', ({ users }) => {
+      setUsers(users);
+    });
+
+    //Here we will handle the unmounting condition by disconnecting the socket 
+    return () => {
+      socket.emit('disconnect');
+
+      socket.off();
+    }
   }, [messages])
 
 
@@ -51,18 +64,19 @@ const sendMessage = (e)=> {
   }
 }
 console.log(message, messages);
-  return(
-    <div>
-        <h1>Welcome to the Chatroom!!</h1>
+  return( 
+    <div className="container">
         <div className="outerContainer">
+        <h1>Welcome to the Chatroom!!</h1>
            <div className="innerContainer">
               <InfoHeader roomName={room}/>
+              <Messages  name={name} messages={messages}/>
+              <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
            </div>
-           <input value={message}
-                  onChange={(event)=> setMessage(event.target.value)} 
-                  onKeyPress={event=> event.key === 'Enter'? sendMessage(event) : null}/>
         </div>
     </div>
+
+ 
    )
 
  }

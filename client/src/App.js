@@ -3,7 +3,7 @@ import './App.css';
 import {BrowserRouter, Route} from 'react-router-dom';
 import Join from './components/Join/Join';
 import Chat from './components/Chat/Chat';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
