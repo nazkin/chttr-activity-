@@ -16,7 +16,7 @@ const Chat = ({location}) => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState('');
   
-  const ENDPOINT = 'localhost:8080';
+  const ENDPOINT = 'http://localhost:8080/';
   
 
   useEffect(()=> {

@@ -4,11 +4,13 @@ const http = require('http');
 const PORT = process.env.PORT || 8080;
 const {addUser,removeUser,getUser,getUsersInRoom} = require('./users'); //helper functions to manage users
 const router = require('./router');
-
+const cors = require('cors');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
+
+app.use(cors());
 //***socket.io
 //Establishing a connection by the user and allowing the user to disconnect 
 io.on('connection', socket => {
