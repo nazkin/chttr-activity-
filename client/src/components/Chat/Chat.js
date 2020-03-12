@@ -16,7 +16,7 @@ const Chat = ({location}) => {
   const [messages, setMessages] = useState([]);
   const [users, setUsers] = useState('');
   
-  const ENDPOINT = 'http://localhost:8080/';
+  const ENDPOINT = 'https://chatroom-realtime-react.herokuapp.com/';
   
 
   useEffect(()=> {
