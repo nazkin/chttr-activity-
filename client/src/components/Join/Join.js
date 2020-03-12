@@ -11,7 +11,8 @@ const Join = (props) => {
   const [room, setRoom] = useState('');
   return(
     <div className="form-style-5">
-      <h1>Join The Chatroom</h1> 
+      <h1>Sign-In</h1>
+      <h3>Join The Chatroom</h3> 
       <fieldset>
 
          <input onChange={(event)=>setName(event.target.value)}

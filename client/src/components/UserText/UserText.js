@@ -11,11 +11,19 @@ const UserText = (props) => {
 
   return(
     <div className="users">
-        {names.map(name=> {
-            return(
-                <p>{name}</p>
-            )
-        })}
+        <ul class="userList">
+            {names.map(name=> {
+                return(
+                    <li key={name}>
+                        <div className="user">
+                            {name}<img className="onlineImg" src="onlineIcon.png" />
+                        </div> 
+                    </li>          
+                )
+            })}
+
+        </ul>
+
     </div>
    )
 

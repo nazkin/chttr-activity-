@@ -1,12 +1,24 @@
 .users{
     width: 100%;
     background-color: lavenderblush;
-    border: 1px solid black;
+    border: 1px solid linen;
     height: 350px;
     margin: 15px;
     padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    overflow: scroll;
+    align-items: flex-end;
+    overflow-y: scroll;
+    color: darkcyan;
+    font-weight: 400;
+}
+.user{
+    width: 100%;
+}
+.userList {
+    list-style: none;
+}
+.onlineImg{
+   margin-left: 5px;
 }
