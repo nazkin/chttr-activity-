@@ -9,4 +9,4 @@
     #socket.io
     
     
-  # To visit the deployed version of this application visit https://5e6a99324a1c295b2093d396--chatroom-live-react.netlify.com
+  # To visit the deployed version of this application visit https://5e6bf93af656cc0c3f83fb47--chatroom-live-react.netlify.com/
